@@ -10,12 +10,14 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = stppc
+TARGET = harbour-stppc
 
 CONFIG += sailfishapp_qml
 
-DISTFILES += qml/stppc.qml \
+DISTFILES += \
+    harbour-stppc.desktop \
     qml/cover/CoverPage.qml \
+    qml/harbour-stppc.qml \
     qml/html/inject.js \
     qml/html/www.chiark.greenend.org.uk/~sgtatham/puzzles/js/style.css \
     qml/pages/Choose.qml \
@@ -25,9 +27,8 @@ DISTFILES += qml/stppc.qml \
     qml/pages/Help.qml \
     rpm/stppc.changes.in \
     rpm/stppc.changes.run.in \
-    rpm/stppc.spec \
-    translations/*.ts \
-    stppc.desktop
+    rpm/harbour-stppc.spec \
+    translations/*.ts
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -39,4 +40,4 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/stppc-de.ts
+TRANSLATIONS += translations/harbour-stppc-de.ts

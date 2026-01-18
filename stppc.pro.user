@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.15.2, 2026-01-18T12:49:16. -->
+<!-- Written by QtCreator 4.15.2, 2026-01-18T19:22:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -415,7 +415,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QmakeProjectManager.MerQmlRunConfiguration</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
     <value type="int" key="RemoteLinux.EnvironmentAspect.Version">1</value>
-    <value type="QString" key="RunConfiguration.Arguments">stppc</value>
+    <value type="QString" key="RunConfiguration.Arguments">harbour-stppc</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>

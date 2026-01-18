@@ -16,8 +16,12 @@ CONFIG += sailfishapp_qml
 
 DISTFILES += qml/stppc.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
+    qml/html/inject.js \
+    qml/html/www.chiark.greenend.org.uk/~sgtatham/puzzles/js/style.css \
+    qml/pages/Choose.qml \
+    qml/pages/Game.qml \
+    qml/html/* \
+    qml/pages/Help.qml \
     rpm/stppc.changes.in \
     rpm/stppc.changes.run.in \
     rpm/stppc.spec \
@@ -28,7 +32,7 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
 # to disable building translations every time, comment out the
 # following CONFIG line
-CONFIG += sailfishapp_i18n
+#CONFIG += sailfishapp_i18n
 
 # German translation is enabled as an example. If you aren't
 # planning to localize your app, remember to comment out the

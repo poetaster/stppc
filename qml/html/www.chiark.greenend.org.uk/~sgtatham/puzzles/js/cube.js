@@ -2167,7 +2167,9 @@ function dbg(text) {
           label.appendChild(document.createTextNode(" " + name));
           item.appendChild(label);
           gametypesubmenus[menuid].appendChild(item);
-  
+          send("menu" + menuid);
+          send("item" + name);
+          send("item" + value);
           tick.onclick = function(event) {
               if (dlg_dimmer === null) {
                   command(2);

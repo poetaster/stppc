@@ -1,0 +1,216 @@
+import QtQuick 2.6
+import Sailfish.Silica 1.0
+
+import Sailfish.WebView 1.0
+import Sailfish.WebEngine 1.0
+import "../html/"
+import "../html/www.chiark.greenend.org.uk/~sgtatham/puzzles/js"
+
+Page {
+    id: gamePage
+    property bool debug: true
+    property string gameName
+    property string gameUrl
+    property string lon
+    property string docker
+
+    allowedOrientations: Orientation.Portrait
+    onOrientationChanged:  {
+        if ( orientation === Orientation.Portrait ) {
+            if (debug) console.debug("port")
+            drawer.open = true
+            webview.height = parent.height * 2/3 //_screenHeight * 2/3
+            //drawer.width = parent.width //_screenWidth
+            //drawer.height = parent.height * 1/3 //_screenHeight * 1/3
+            //drawer.dock = Dock.Bottom
+            drawer.open = true
+        } else {
+            if (debug) console.debug("land")
+            webview.height = parent.height
+            //drawer.width = _screenWidth / 2
+            //drawer.height = _screenHeight
+            //drawer.dock = Dock.Right
+            drawer.open = false
+        }
+    }
+    SilicaFlickable {
+        id: flicky
+        anchors.fill: parent
+
+        Component.onCompleted: {
+        }
+
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Choose Game")
+                onClicked: pageStack.animatorPush(Qt.resolvedUrl("Choose.qml"))
+            }
+        }
+
+        //contentHeight: webview.height
+
+        WebView {
+            id: webview
+            width: parent.width
+            height: parent.height * 2/3
+
+            anchors {
+                //fill:parent
+                left: parent.left
+                right: parent.right
+            }
+
+            /* This will probably be required from 4.4 on. */
+            Component.onCompleted: {
+                //WebEngineSettings.setPreference("security.disable_cors_checks", true, WebEngineSettings.BoolPref)
+                //WebEngineSettings.pixelRatio = 3
+                WebEngineSettings.setPreference("security.fileuri.strict_origin_policy", false, WebEngineSettings.BoolPref)
+                if (debug) console.debug(webview.height)
+                if (debug) console.debug(webview.width)
+            }
+
+            url: "../html/www.chiark.greenend.org.uk/~sgtatham/puzzles/js/" + games[currentIndex]
+
+            onViewInitialized: {
+                webview.loadFrameScript(Qt.resolvedUrl("../html/framescript.js"));
+                webview.addMessageListener("webview:action");
+
+                //webview.runJavaScript("return latlon('" + lat + "','" + lon + "')");
+            }
+            on_PageOrientationChanged: {
+                //if ( data.topic != lon ) {
+                //webview.runJavaScript("return latlon('" + lat + "','" + lon + "')");
+                //}
+
+            }
+
+            onRecvAsyncMessage: {
+                if (debug) console.debug(message)
+                switch (message) {
+                case "embed:contentOrientationChanged":
+                    break
+                case "webview:action":
+                        if (debug) console.debug(data.topic)
+                    break
+                }
+            }
+        }
+        /* command() */
+        // 2 - gametype
+        // 5 new
+        // 6 restart
+        // 7 undo
+        // 8 redo
+        Row {
+            id: buttonsGame
+            anchors.top: webview.bottom
+            width: parent.width
+            spacing: Theme.paddingMedium
+            Button {
+                text: "New"
+                width: (parent.width - 2 * buttons.spacing) / 2
+                onClicked: webview.runJavaScript("return action('5')")
+            }
+            Button {
+                text: "Restart"
+                width: (parent.width - 2 * buttons.spacing) / 2
+                onClicked: webview.runJavaScript("return action('6')")
+            }
+        }
+        Separator {
+            id: sepOne
+            width:parent.width
+            anchors.top: buttonsGame.bottom
+            height: Theme.paddingLarge
+        }
+
+        Row {
+            id: buttons
+            anchors.bottomMargin: Theme.paddingLarge
+            anchors.top: sepOne.bottom
+            width: parent.width
+            spacing: Theme.paddingMedium
+            Button {
+                text: "Undo"
+                width: (parent.width - 2 * buttons.spacing) / 2
+                onClicked: webview.runJavaScript("return action('7')")
+            }
+            Button {
+                text: "Redo"
+                width: (parent.width - 2 * buttons.spacing) / 2
+                onClicked: webview.runJavaScript("return action('8')")
+            }
+        }
+
+        DockedPanel{
+            id: drawer
+            visible: true
+            width: parent.width
+            height: parent.height * 1/5
+            dock: Dock.Bottoma
+            TextArea {
+                readOnly: true
+                anchors.fill: parent
+                text:  helpFields.get(currentIndex).desc
+            }
+             //= ["Blackbox","Bridges","Cube","Flood","Fifteen","Filling","Flip"]
+            ListModel {
+                 id: helpFields
+                 ListElement {
+                     name: "Blackbox"
+                     desc: " A number of balls are hidden in a rectangular arena. You have to deduce the positions of the balls by firing lasers positioned at the edges of the arena and observing how their beams are deflected.
+                        \nBeams will travel straight from their origin until they hit the opposite side of the arena (at which point they emerge), unless affected by balls in one of the following ways:
+                        \n    A beam that hits a ball head-on is absorbed and will never re-emerge. This includes beams that meet a ball on the first rank of the arena.
+                        \n    A beam with a ball in its front-left square and no ball ahead of it gets deflected 90 degrees to the right.
+                        \n    A beam with a ball in its front-right square and no ball ahead of it gets similarly deflected to the left.
+                        \n    A beam that would re-emerge from its entry location is considered to be ‘reflected’.
+                        \n    A beam which would get deflected before entering the arena by a ball to the front-left or front-right of its entry point is also considered to be ‘reflected’. "
+                 }
+                 ListElement {
+                     name: "Bridges"
+                     desc: " You have a set of islands distributed across the playing area. Each island contains a number. Your aim is to connect the islands together with bridges, in such a way that:
+                             \n   Bridges run horizontally or vertically.
+                             \n   The number of bridges terminating at any island is equal to the number written in that island.
+                             \n   Two bridges may run in parallel between the same two islands, but no more than two may do so.
+                             \n   No bridge crosses another bridge.
+                             \n   All the islands are connected together."
+                    }
+                 ListElement {
+                     name: "Cube"
+                     desc: "Roll the cube around the grid, picking up the blue squares on its faces. Try to get all the blue squares on to the object at the same time, in as few moves as possible. Tap where you want it to roll towards. After every roll, the grid square and cube face that you brought into contact swap their colours, so that a non-blue cube face can pick up a blue square, but a blue face rolled on to a non-blue square puts it down again."
+                    }
+                  ListElement {
+                      name:"Flood"
+                      desc:"Try to get the whole grid to be the same colour within the given number of moves, by repeatedly flood-filling the top left corner in different colours."
+                    }
+                  ListElement {
+                      name: "Fifteen"
+                      desc: "Slide the tiles around the box until they appear in numerical order from the top left, with the hole in the bottom right corner. Click on a tile to slide it towards the hole."
+                   }
+                  ListElement {
+                      name: "Filling"
+                      desc: " You have a grid of squares, some of which contain digits, and the rest of which are empty. Your job is to fill in digits in the empty squares, in such a way that each connected region of squares all containing the same digit has an area equal to that digit.
+                              \n (‘Connected region’, for the purposes of this game, does not count diagonally separated squares as adjacent.)
+                              \nFor example, it follows that no square can contain a zero, and that two adjacent squares can not both contain a one. No region has an area greater than 9 (because then its area would not be a single digit). "
+                  }
+                  ListElement {
+                      name: "Flip"
+                      desc: "You have a grid of squares, some light and some dark. Light all the squares up at the same time. Choose any square and flip its state, but when you do so, other squares around it change state as well.
+                             Each square contains a small diagram showing which other squares change when you flip it."
+                  }
+             }
+        }
+        IconButton{
+            id: upButton
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+                bottom: parent.bottom
+            }
+            visible: ! drawer.open
+            icon.source: "image://theme/icon-m-up"
+            onClicked: drawer.open = true
+
+        }
+
+    }
+}

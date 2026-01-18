@@ -13,7 +13,7 @@ Name[de]=stppc
 
 [X-Sailjail]
 # Replace with your organization as a reverse domain name
-OrganizationName=org.myorg
+OrganizationName=de.poetaster
 # ApplicationName does not have to be identical to Name
 ApplicationName=stppc
 # Add the required permissions here

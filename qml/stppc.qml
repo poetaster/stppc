@@ -12,9 +12,10 @@ ApplicationWindow {
     property string txts
 
     Component.onCompleted: {
-       games = ["blackbox.html","bridges.html","cube.html","dominosa.html","flood.html","fifteen.html","flip.html", "galaxies.html"]
+       games = ["blackbox.html","bridges.html","cube.html","dominosa.html","flood.html","fifteen.html",
+                "flip.html", "galaxies.html", "inertia.html", "loopy.html","net.html","same.html","sixteen.html"]
        currentGame = games[currentIndex]
-       gameNames = ["Blackbox","Bridges","Cube","Dominosa","Flood","Fifteen","Flip","Galaxies"]
+       gameNames = ["Blackbox","Bridges","Cube","Dominosa","Flood","Fifteen","Flip","Galaxies","Inertia","Loopy","Net","Samegame","Sixteen"]
        currentGameName = gameNames[currentIndex]
 
     }

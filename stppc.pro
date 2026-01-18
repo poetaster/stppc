@@ -21,6 +21,7 @@ DISTFILES += qml/stppc.qml \
     qml/pages/Choose.qml \
     qml/pages/Game.qml \
     qml/html/* \
+    qml/img/* \
     qml/pages/Help.qml \
     rpm/stppc.changes.in \
     rpm/stppc.changes.run.in \

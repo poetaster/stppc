@@ -38,9 +38,9 @@ Custom:
  - Repo: https://github.com/poetaster/stppc
 Icon: https://raw.githubusercontent.com/poetaster/stppc/master/icons/172x172/harbour-stppc.png
 Screenshots:
- - https://raw.githubusercontent.com/poetaster/stppc/master/screen-1.jpg
- - https://raw.githubusercontent.com/poetaster/stppc/master/screen-2.jpg
- - https://raw.githubusercontent.com/poetaster/stppc/master/screen-3.jpg
+ - https://raw.githubusercontent.com/poetaster/stppc/master/screen-1.png
+ - https://raw.githubusercontent.com/poetaster/stppc/master/screen-2.png
+ - https://raw.githubusercontent.com/poetaster/stppc/master/screen-3.png
 %endif
 
 %prep

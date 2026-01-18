@@ -147,37 +147,49 @@ Page {
             visible: true
             width: parent.width
             height: parent.height * 1/5
-            dock: Dock.Bottoma
+            dock: Dock.Bottom
+           /*
+            Label{
+                id:gLabel
+                text:  helpFields.get(currentIndex).name
+            }*/
+
             TextArea {
+                id:descripton
                 readOnly: true
                 anchors.fill: parent
                 text:  helpFields.get(currentIndex).desc
             }
-             //= ["Blackbox","Bridges","Cube","Flood","Fifteen","Filling","Flip"]
+             //= ["Blackbox","Bridges","Cube","Flood","Fifteen","Flip","Galaxies]
             ListModel {
                  id: helpFields
                  ListElement {
                      name: "Blackbox"
                      desc: " A number of balls are hidden in a rectangular arena. You have to deduce the positions of the balls by firing lasers positioned at the edges of the arena and observing how their beams are deflected.
-                        \nBeams will travel straight from their origin until they hit the opposite side of the arena (at which point they emerge), unless affected by balls in one of the following ways:
-                        \n    A beam that hits a ball head-on is absorbed and will never re-emerge. This includes beams that meet a ball on the first rank of the arena.
-                        \n    A beam with a ball in its front-left square and no ball ahead of it gets deflected 90 degrees to the right.
-                        \n    A beam with a ball in its front-right square and no ball ahead of it gets similarly deflected to the left.
-                        \n    A beam that would re-emerge from its entry location is considered to be ‘reflected’.
-                        \n    A beam which would get deflected before entering the arena by a ball to the front-left or front-right of its entry point is also considered to be ‘reflected’. "
+                        Beams will travel straight from their origin until they hit the opposite side of the arena (at which point they emerge), unless affected by balls in one of the following ways:
+                        A beam that hits a ball head-on is absorbed and will never re-emerge. This includes beams that meet a ball on the first rank of the arena.
+                        A beam with a ball in its front-left square and no ball ahead of it gets deflected 90 degrees to the right.
+                        A beam with a ball in its front-right square and no ball ahead of it gets similarly deflected to the left.
+                        A beam that would re-emerge from its entry location is considered to be ‘reflected’.
+                        A beam which would get deflected before entering the arena by a ball to the front-left or front-right of its entry point is also considered to be ‘reflected’. "
                  }
                  ListElement {
                      name: "Bridges"
                      desc: " You have a set of islands distributed across the playing area. Each island contains a number. Your aim is to connect the islands together with bridges, in such a way that:
-                             \n   Bridges run horizontally or vertically.
-                             \n   The number of bridges terminating at any island is equal to the number written in that island.
-                             \n   Two bridges may run in parallel between the same two islands, but no more than two may do so.
-                             \n   No bridge crosses another bridge.
-                             \n   All the islands are connected together."
+                            Bridges run horizontally or vertically.
+                            The number of bridges terminating at any island is equal to the number written in that island.
+                            Two bridges may run in parallel between the same two islands, but no more than two may do so.
+                            No bridge crosses another bridge.
+                            All the islands are connected together."
                     }
                  ListElement {
                      name: "Cube"
                      desc: "Roll the cube around the grid, picking up the blue squares on its faces. Try to get all the blue squares on to the object at the same time, in as few moves as possible. Tap where you want it to roll towards. After every roll, the grid square and cube face that you brought into contact swap their colours, so that a non-blue cube face can pick up a blue square, but a blue face rolled on to a non-blue square puts it down again."
+                    }
+                 ListElement {
+                     name: "Dominosa"
+                     desc: "Tile the rectangle with dominoes (1×2 rectangles) so that every possible domino appears exactly once (that is, every possible pair of numbers, including doubles).
+                            Click between two adjacent numbers to place or remove a domino. Right-click to place a line between numbers if you think a domino definitely cannot go there. Dominoes light up red if two identical ones appear on the grid. "
                     }
                   ListElement {
                       name:"Flood"
@@ -188,15 +200,15 @@ Page {
                       desc: "Slide the tiles around the box until they appear in numerical order from the top left, with the hole in the bottom right corner. Click on a tile to slide it towards the hole."
                    }
                   ListElement {
-                      name: "Filling"
-                      desc: " You have a grid of squares, some of which contain digits, and the rest of which are empty. Your job is to fill in digits in the empty squares, in such a way that each connected region of squares all containing the same digit has an area equal to that digit.
-                              \n (‘Connected region’, for the purposes of this game, does not count diagonally separated squares as adjacent.)
-                              \nFor example, it follows that no square can contain a zero, and that two adjacent squares can not both contain a one. No region has an area greater than 9 (because then its area would not be a single digit). "
-                  }
-                  ListElement {
                       name: "Flip"
                       desc: "You have a grid of squares, some light and some dark. Light all the squares up at the same time. Choose any square and flip its state, but when you do so, other squares around it change state as well.
                              Each square contains a small diagram showing which other squares change when you flip it."
+                  }
+                  ListElement {
+                      name: "Galaxies"
+                      desc: " Draw lines along grid edges so as to divide the grid up into connected regions of squares.
+                              Every region should have two-way rotational symmetry, should contain exactly one dot which is in its centre, and should contain no lines separating two of its own squares from each other. A region satisfying all of these requirements will be automatically highlighted.
+                              Click on a grid edge to add or remove a line. Right-click on a dot and drag the mouse to place an arrow in a grid square pointing to that dot, to indicate that you think that square must belong in the same region as that dot. Right-drag an existing arrow to move it, or drop it off the edge of the grid to remove it. "
                   }
              }
         }

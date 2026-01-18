@@ -3,8 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ASCII" />
 <title>Filling, from Simon Tatham's Portable Puzzle Collection</title>
-<script defer type="text/javascript" src="filling.js"></script>
 <script defer type="text/javascript" src="../../../../inject.js"></script>
+<script defer type="text/javascript" src="filling.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+#gamemenu {
+    margin-top: 0;
+    margin-bottom: 0.375em;
+    /* Add a little mild text formatting */
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    width: 80vw;
+}
+</style>
 </head>
 <body>
 
@@ -18,7 +30,7 @@
  </div>
 </div>
 
-<main id="puzzle" style="display: none; width: 100vw">
+<main id="puzzle" style="display: none; width: 102vw">
 <form id="gamemenu">
 <ul>
   <li><div style="display:none" tabindex="0">Game
@@ -46,7 +58,7 @@
   <li style="display:none" ><button type="button" id="redo">
     Redo<span class="verbiage"> move</span>
   </button></li>
-  <li style="display:none" ><button type="button" id="solve">
+  <li><button type="button" id="solve">
     Solve<span class="verbiage"> game</span>
   </button></li>
 </ul></form>

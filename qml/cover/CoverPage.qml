@@ -5,9 +5,14 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTr("My Cover")
+        text: root.gameNames[currentIndex]
     }
+    property var games
+    Component.onCompleted: {
 
+
+    }
+/*
     CoverActionList {
         id: coverAction
 
@@ -18,5 +23,6 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-pause"
         }
-    }
+    }*/
+
 }

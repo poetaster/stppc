@@ -7,13 +7,13 @@ Page {
     property var games
     SilicaListView {
         id: listView
-        model: 7
+        model: 8
         anchors.fill: parent
         header: PageHeader {
             title: qsTr("Choose")
         }
         Component.onCompleted: {
-            games = ["Blackbox","Bridges","Cube","Flood","Fifteen","Filling","Flip"]
+            games = ["Blackbox","Bridges","Cube","Dominosa","Flood","Fifteen","Flip","Galaxies"]
 
         }
 
@@ -25,7 +25,7 @@ Page {
                 text: games[index]
                 anchors.verticalCenter: parent.verticalCenter
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-                highlighted: currentIndex === index
+                highlighted: index === root.currentIndex
             }
             onClicked: {
                 currentIndex = index

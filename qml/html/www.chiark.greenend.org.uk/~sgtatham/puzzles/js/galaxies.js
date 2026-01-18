@@ -1274,7 +1274,7 @@ function createExportWrapper(name, nargs) {
 // include: runtime_exceptions.js
 // end include: runtime_exceptions.js
 function findWasmBinary() {
-  var f = 'dominosa.wasm';
+  var f = 'galaxies.wasm';
   if (!isDataURI(f)) {
     return locateFile(f);
   }

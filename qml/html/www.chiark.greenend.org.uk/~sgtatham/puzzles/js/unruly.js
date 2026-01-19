@@ -1274,7 +1274,7 @@ function createExportWrapper(name, nargs) {
 // include: runtime_exceptions.js
 // end include: runtime_exceptions.js
 function findWasmBinary() {
-  var f = 'bridges.wasm';
+  var f = 'unruly.wasm';
   if (!isDataURI(f)) {
     return locateFile(f);
   }

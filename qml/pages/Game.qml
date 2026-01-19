@@ -173,15 +173,6 @@ Page {
   A beam which would get deflected before entering the arena by a ball to the front-left or front-right of its entry point is also considered to be ‘reflected’. "
                  }
                  ListElement {
-                     name: "Bridges"
-                     desc: " You have a set of islands distributed across the playing area. Each island contains a number. Your aim is to connect the islands together with bridges, in such a way that:
-  Bridges run horizontally or vertically.
-  The number of bridges terminating at any island is equal to the number written in that island.
-  Two bridges may run in parallel between the same two islands, but no more than two may do so.
-  No bridge crosses another bridge.
-  All the islands are connected together."
-                    }
-                 ListElement {
                      name: "Cube"
                      desc: "Roll the cube around the grid, picking up the blue squares on its faces. Try to get all the blue squares on to the object at the same time, in as few moves as possible. Tap where you want it to roll towards. After every roll, the grid square and cube face that you brought into contact swap their colours, so that a non-blue cube face can pick up a blue square, but a blue face rolled on to a non-blue square puts it down again."
                     }
@@ -228,6 +219,10 @@ Page {
   When this gets too easy, select a 'wrapping' variant from the Type menu to enable grid lines to run off one edge of the playing area and come back on the opposite edge!"
                   }
                   ListElement {
+                      name: "Rectangles"
+                      desc: " Draw lines along the grid edges to divide the grid into rectangles, so that each rectangle contains exactly one numbered square and its area is equal to the number written in that square. Click on a single grid edge to draw or erase it. "
+                 }
+                  ListElement {
                       name: "Same Game"
                       desc: "Try to empty the playing area completely, by removing connected groups of two or more squares of the same colour. Then try to score as much as possible, by removing large groups at a time instead of small ones.
   Click on a coloured square to highlight the rest of its connected group. The status line will print the number of squares selected, and the score you would gain by removing them. Click again to remove the group; other squares will fall down to fill the space, and if you empty a whole column then the other columns will move up. You cannot remove a single isolated square: try to avoid dead-end positions where all remaining squares are isolated. "
@@ -235,6 +230,12 @@ Page {
                   ListElement {
                       name: "Sixteen"
                       desc: "Slide the grid squares around so that the numbers end up in consecutive order from the top left corner. "
+                  }
+                  ListElement {
+                      name: "Unruly"
+                      desc: " Colour every square either black or white, in such a way that:
+ no three consecutive squares, horizontally or vertically, are the same colour
+ each row and column contains the same number of black and white squares."
                   }
              }
         }

@@ -7,13 +7,13 @@ Page {
     property var games
     SilicaListView {
         id: listView
-        model:13
+        model:14
         anchors.fill: parent
         header: PageHeader {
             title: qsTr("Choose")
         }
         Component.onCompleted: {
-            games = ["Blackbox","Bridges","Cube","Dominosa","Flood","Fifteen","Flip","Galaxies","Intertia", "Loopy","Net","Same Game","Sixteen"]
+            games = ["Blackbox","Cube","Dominosa","Flood","Fifteen","Flip","Galaxies","Inertia", "Loopy","Net", "Rectangles", "Same Game","Sixteen","Unruly"]
 
         }
 

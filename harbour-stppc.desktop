@@ -17,4 +17,4 @@ OrganizationName=de.poetaster
 # ApplicationName does not have to be identical to Name
 ApplicationName=stppc
 # Add the required permissions here
-Permissions=
+Permissions=UserDirs

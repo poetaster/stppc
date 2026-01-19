@@ -10,7 +10,7 @@ Name:       harbour-stppc
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
 Summary:    Simon Tatham's Portable Puzzle Collection
-Version:    0.1.0
+Version:    0.2.0
 Release:    1
 License:    MIT
 BuildArch:  noarch
